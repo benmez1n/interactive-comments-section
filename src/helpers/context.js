@@ -22,12 +22,10 @@ const AppProvider = ({children}) => {
     const addToReply = (value,id)=>{
         dispatch({type:"ADD_TO_REPLY",payload:{value,id}})   
     }
-    const deleteComment = (id) => {
-        dispatch({type:"DELETE_COMMENT",payload:{id}})
-    }
-    const deleteReply = (id) => {
-        dispatch({type:"DELETE_REPLY",payload:{id}})   
-    }
+    // const deleteComment = (id) => {
+    //     dispatch({type:"DELETE_COMMENT",payload:{id}})
+    //     console.log(id);
+    // }
 
     const incrementScore = (value) => {
         return value+1
@@ -40,8 +38,6 @@ const AppProvider = ({children}) => {
             ...state,
             addComment,
             addReply,
-            deleteComment,
-            deleteReply,
             addToReply,
             incrementScore,
             decrementScore

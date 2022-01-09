@@ -2,7 +2,9 @@ import { useRef, useState } from "react";
 
 import { useGlobalContext } from "../helpers/context";
 const Reply = ({id,content,createdAt,score,replyingTo,user,image,username}) => {
+
     const { addToReply , incrementScore , decrementScore } = useGlobalContext()
+    
     const [toReply,setToReply] = useState("")
 
     const replyCont = useRef()
@@ -117,7 +119,7 @@ const Reply = ({id,content,createdAt,score,replyingTo,user,image,username}) => {
                     <input 
                         value={replyEdited} onChange={(e)=>setReplyEdited(e.target.value)}
                         className="px-3 h-14 rounded-lg focus:outline-blue sm:w-5/6" 
-                        type="text" placeholder="Add a Reply"/> 
+                        type="text" placeholder="Edit your reply"/> 
                     <button className="h-8 bg-blue font-bold text-white py-1 px-2 tracking-wide hover:cursor-pointer rounded-lg
                                         sm:h-12 sm:px-3"
                             onClick={()=>handleEditSubmit()}>

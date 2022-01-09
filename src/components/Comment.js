@@ -3,6 +3,7 @@ import { useGlobalContext } from "../helpers/context";
 import Reply from "./Reply";
 
 const Comment = ({id,content , createdAt , score , user,replies, image,username}) => {
+
     const { addReply , incrementScore , decrementScore } = useGlobalContext()
 
     const commentCont = useRef()
@@ -77,8 +78,7 @@ const Comment = ({id,content , createdAt , score , user,replies, image,username}
                         {
                             username === user.username ? 
                                     <div className="flex place-items-center">
-                                        <div className="flex mr-3 hover:cursor-pointer sm:mr-8 place-items-center"
-                                           >
+                                        <div className="flex mr-3 hover:cursor-pointer sm:mr-8 place-items-center">
                                             <img className="h-4 mr-1 "src="../images/icon-delete.svg" alt=""/>
                                             <span className="text-red-soft font-semibold">Delete</span>
                                         </div>
@@ -129,7 +129,7 @@ const Comment = ({id,content , createdAt , score , user,replies, image,username}
                     <input 
                         value={commentEdited} onChange={(e)=>setCommentEdited(e.target.value)}
                         className="px-3 h-14 rounded-lg focus:outline-blue sm:w-5/6" 
-                        type="text" placeholder="Add a Reply"/> 
+                        type="text" placeholder="Edit your comment"/> 
                     <button className="h-8 bg-blue font-bold text-white py-1 px-2 tracking-wide hover:cursor-pointer rounded-lg
                                         sm:h-12 sm:px-3"
                             onClick={()=>handleEditSubmit()}>

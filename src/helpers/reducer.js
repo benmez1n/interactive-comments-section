@@ -1,3 +1,4 @@
+import moment from 'moment';
 export const reducer = (state,action) => {
     const comments = state.comments
     const {image , username } = state.currentUser
@@ -15,7 +16,7 @@ export const reducer = (state,action) => {
                     {
                         id:state.stateID+1,
                         content:action.payload.value,
-                        createdAt:"Today",
+                        createdAt:moment().startOf(new Date().now).fromNow(),
                         score:0,
                         user:{
                             image:{png:image.png},
@@ -43,7 +44,7 @@ export const reducer = (state,action) => {
                         replies:[...comment.replies,{
                             id: state.stateID+1,
                             content:action.payload.value,
-                            createdAt:"Today",
+                            createdAt:moment().startOf(new Date().now).fromNow(),
                             score:0,
                             replyingTo:comment.user.username,
                             user:{
@@ -85,7 +86,7 @@ export const reducer = (state,action) => {
                         replies:[...comment.replies,{
                             id: state.stateID+1,
                             content:action.payload.value,
-                            createdAt:"Today",
+                            createdAt:moment().startOf(new Date().now).fromNow(),
                             score:0,
                             replyingTo:reply[0].user.username,
                             user:{
@@ -114,4 +115,8 @@ export const reducer = (state,action) => {
             }
         }
     }
+
+    // else if (action.payload.type === "DELETE_COMMENT"){
+
+    // }
 }
